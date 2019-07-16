@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { numbers } from "../../../data";
 import style from "./Numbers.module.css";
 
@@ -6,15 +6,15 @@ import style from "./Numbers.module.css";
 
 //Import your array data to from the provided data file
 
-const Numbers = () => {
-  const [nums, setNums] = useState(numbers);
+const Numbers = ({ children: { nums, setNums, setDisplay } }) => {
   // STEP 2 - add the imported data to state
-  return nums.map(number => {
+
+  return numbers.map(number => {
     return (
       <button
         type="button"
         number={number}
-        onClick={() => console.log(number)}
+        onClick={() => setDisplay(number)}
         className={number === "0" ? style.numberButtonZero : style.numberButton}
       >
         {number}

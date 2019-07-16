@@ -2,10 +2,10 @@ import React from "react";
 import Numbers from "./Numbers";
 import style from "./Numbers.module.css";
 
-const NumberButton = props => {
+const NumberButton = ({ nums, setNums, setDisplay }) => {
   return (
     <div className={style.numberContainer}>
-      <Numbers />
+      <Numbers>{{ nums, setNums, setDisplay }}</Numbers>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React from "react";
 import style from "./Display.module.css";
 
-const Display = () => {
+const Display = ({ display }) => {
   return (
     <div className={style.displayField}>
-      <span>0</span>
+      <span>{display}</span>
       {/* Display any props data here */}
     </div>
   );

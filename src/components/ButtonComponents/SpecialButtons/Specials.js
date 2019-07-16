@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { specials } from "../../../data";
 import style from "./Specials.module.css";
 
-const Specials = () => {
-  const [specs, setSpecs] = useState(specials);
+const Specials = ({ children: { specs, setSpecs, setDisplay } }) => {
   // STEP 2 - add the imported data to state
-  return specs.map(specialChar => {
+  const handleClick = () => {
+    setDisplay("clicked");
+  };
+  return specials.map(specialChar => {
     return (
       <button
         type="button"
         special={specialChar}
-        onClick={() => console.log(specialChar)}
+        onClick={handleClick}
         className={style.specialButton}
       >
         {specialChar}
