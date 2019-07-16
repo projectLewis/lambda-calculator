@@ -2,10 +2,18 @@ import React from "react";
 import style from "./Operators.module.css";
 import Operators from "./Operators";
 
-const OperatorButton = ({ ops, setOps, setDisplay }) => {
+const OperatorButton = ({
+  lastClicked,
+  setLastClicked,
+  evaluated,
+  setEvaluated,
+  setDisplay
+}) => {
   return (
     <div className={style.operatorsContainer}>
-      <Operators>{{ ops, setOps, setDisplay }}</Operators>
+      <Operators>
+        {{ lastClicked, setLastClicked, evaluated, setEvaluated, setDisplay }}
+      </Operators>
     </div>
   );
 };

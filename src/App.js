@@ -14,9 +14,8 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [display, setDisplay] = useState("0");
-  const [nums, setNums] = useState(null);
-  const [ops, setOps] = useState(null);
-  const [specs, setSpecs] = useState(null);
+  const [evaluated, setEvaluated] = useState("0");
+  const [lastClicked, setLastClicked] = useState("");
 
   return (
     <div className="container">
@@ -34,21 +33,24 @@ function App() {
         >
           <div>
             <SpecialButton
-              specs={specs}
-              setSpecs={setSpecs}
+              setLastClicked={setLastClicked}
+              setEvaluated={setEvaluated}
               setDisplay={setDisplay}
             />
             <NumberButton
-              nums={nums}
-              setNums={setNums}
+              lastClicked={lastClicked}
+              setLastClicked={setLastClicked}
+              evaluated={evaluated}
+              setEvaluated={setEvaluated}
               setDisplay={setDisplay}
             />
           </div>
           <OperatorButton
-            ops={ops}
-            setOps={setOps}
-            display={display}
+            lastClicked={lastClicked}
+            setLastClicked={setLastClicked}
+            setEvaluated={setEvaluated}
             setDisplay={setDisplay}
+            evaluated={evaluated}
           />
         </div>
       </div>
