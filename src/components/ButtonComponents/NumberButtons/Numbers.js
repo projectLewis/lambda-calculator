@@ -12,8 +12,9 @@ const Numbers = () => {
   return nums.map(number => {
     return (
       <button
+        type="button"
         number={number}
-        onClick={e => console.log(number)}
+        onClick={() => console.log(number)}
         className={number === "0" ? style.numberButtonZero : style.numberButton}
       >
         {number}
