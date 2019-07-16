@@ -2,8 +2,8 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(1, 1fr);
-  /* height: 80px; */
-  /* width: 400px; */
+
+  width: 110px;
   margin: 20px 0;
 }
 
@@ -16,4 +16,5 @@
   font-weight: bold;
   font-size: 30px;
   cursor: pointer;
+  height: 80px;
 }

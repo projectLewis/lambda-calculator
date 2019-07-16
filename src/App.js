@@ -23,9 +23,19 @@ function App() {
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display />
-        <SpecialButton />
-        <NumberButton />
-        <OperatorButton />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gridGap: "20px"
+          }}
+        >
+          <div>
+            <SpecialButton />
+            <NumberButton />
+          </div>
+          <OperatorButton />
+        </div>
       </div>
     </div>
   );
