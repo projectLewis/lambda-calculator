@@ -9,7 +9,7 @@ const Operators = ({ children: { ops, setOps, setDisplay } }) => {
       <button
         type="button"
         value={value}
-        onClick={() => setDisplay(value)}
+        onClick={() => console.log(value)}
         className={style.operatorButton}
       >
         {char}

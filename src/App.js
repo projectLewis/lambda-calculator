@@ -44,7 +44,12 @@ function App() {
               setDisplay={setDisplay}
             />
           </div>
-          <OperatorButton ops={ops} setOps={setOps} setDisplay={setDisplay} />
+          <OperatorButton
+            ops={ops}
+            setOps={setOps}
+            display={display}
+            setDisplay={setDisplay}
+          />
         </div>
       </div>
     </div>
