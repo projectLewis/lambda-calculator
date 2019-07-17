@@ -5,9 +5,9 @@ import style from "./Numbers.module.css";
 const Numbers = ({
   children: { setLastClicked, lastClicked, evaluated, setEvaluated, setDisplay }
 }) => {
+  // generates buttons
   return numbers.map((number, idx) => {
     const handleClick = () => {
-      console.log("case 0");
       const specialArray = ["/", "*", "-", "+", "="];
       if (lastClicked === "/") {
         if (number === "0") {

@@ -12,9 +12,12 @@ const Operators = ({
     setDisplay
   }
 }) => {
+  // generates buttons
   return operators.map(({ value, char }, idx) => {
     const specialArray = ["/", "*", "-", "+", "="];
 
+    // checks to see if last clicked was a number, and if so evaluate current point
+    // ignores clicks if not preceeded by a number
     const handleClick = () => {
       if (value === "/" && specialArray.indexOf(lastClicked) === -1) {
         setEvaluated(prevEvaluated => display);

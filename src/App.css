@@ -6,3 +6,10 @@
   border-radius: 15px;
   border: 2px double gray;
 }
+
+.overallButtonsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  padding-left: 17px;
+}

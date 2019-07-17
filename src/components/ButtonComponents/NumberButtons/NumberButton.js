@@ -2,6 +2,8 @@ import React from "react";
 import Numbers from "./Numbers";
 import style from "./Numbers.module.css";
 
+// props passed and container styling
+
 const NumberButton = ({
   lastClicked,
   setLastClicked,

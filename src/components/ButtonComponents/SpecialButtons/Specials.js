@@ -5,8 +5,10 @@ import style from "./Specials.module.css";
 const Specials = ({
   children: { setLastClicked, setEvaluated, setDisplay }
 }) => {
+  // generates buttons
   return specials.map((specialChar, idx) => {
     const handleClick = () => {
+      // 'C' resets the calculator to starting point
       if (specialChar === "C") {
         setDisplay(prevDisplay => "0");
         setEvaluated(prevEvaluated => "0");

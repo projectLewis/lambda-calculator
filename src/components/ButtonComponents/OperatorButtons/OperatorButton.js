@@ -2,6 +2,8 @@ import React from "react";
 import style from "./Operators.module.css";
 import Operators from "./Operators";
 
+// props passed and container styling
+
 const OperatorButton = ({
   lastClicked,
   setLastClicked,
