@@ -1,16 +1,57 @@
 import React from "react";
+import { operators } from "../../../data";
+import style from "./Operators.module.css";
 
-//import any components needed
+const Operators = ({
+  children: {
+    lastClicked,
+    setLastClicked,
+    evaluated,
+    setEvaluated,
+    display,
+    setDisplay
+  }
+}) => {
+  // generates buttons
+  return operators.map(({ value, char }, idx) => {
+    const specialArray = ["/", "*", "-", "+", "="];
 
-//Import your array data to from the provided data file
-
-const Operators = () => {
-  // STEP 2 - add the imported data to state
-  return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
-  );
+    // checks to see if last clicked was a number, and if so evaluate current point
+    // ignores clicks if not preceeded by a number
+    const handleClick = () => {
+      if (value === "/" && specialArray.indexOf(lastClicked) === -1) {
+        setEvaluated(prevEvaluated => display);
+        return setLastClicked(prevClicked => "/");
+      }
+      if (value === "*" && specialArray.indexOf(lastClicked) === -1) {
+        setEvaluated(prevEvaluated => display);
+        return setLastClicked(prevClicked => "*");
+      }
+      if (value === "-" && specialArray.indexOf(lastClicked) === -1) {
+        setEvaluated(prevEvaluated => display);
+        return setLastClicked(prevClicked => "-");
+      }
+      if (value === "+" && specialArray.indexOf(lastClicked) === -1) {
+        setEvaluated(prevEvaluated => display);
+        return setLastClicked(prevClicked => "+");
+      }
+      if (value === "=" && specialArray.indexOf(lastClicked) === -1) {
+        setDisplay(prevDisplay => evaluated);
+        return setLastClicked(prevClicked => evaluated);
+      }
+    };
+    return (
+      <button
+        key={idx}
+        type="button"
+        value={value}
+        onClick={handleClick}
+        className={style.operatorButton}
+      >
+        {char}
+      </button>
+    );
+  });
 };
+
+export default Operators;

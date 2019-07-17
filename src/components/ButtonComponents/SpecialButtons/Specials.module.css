@@ -1,0 +1,19 @@
+.specialContainer {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 80px;
+  width: 350px;
+  margin: 20px 0;
+}
+
+.specialButton {
+  border-radius: 50%;
+  box-shadow: 1px 8px 2px -2px #2b2b2b;
+  color: white;
+  background-color: rgb(24, 93, 155);
+  border: 0;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+}

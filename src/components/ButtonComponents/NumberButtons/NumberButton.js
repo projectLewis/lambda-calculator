@@ -1,9 +1,23 @@
 import React from "react";
+import Numbers from "./Numbers";
+import style from "./Numbers.module.css";
 
-const NumberButton = () => {
+// props passed and container styling
+
+const NumberButton = ({
+  lastClicked,
+  setLastClicked,
+  evaluated,
+  setEvaluated,
+  setDisplay
+}) => {
   return (
-    <>
-      {/* Display a button element rendering the data being passed down from the parent container on props */}
-    </>
+    <div className={style.numberContainer}>
+      <Numbers>
+        {{ lastClicked, setLastClicked, evaluated, setEvaluated, setDisplay }}
+      </Numbers>
+    </div>
   );
 };
+
+export default NumberButton;

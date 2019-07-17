@@ -1,16 +1,65 @@
 import React from "react";
+import { numbers } from "../../../data";
+import style from "./Numbers.module.css";
 
-//import any components needed
+const Numbers = ({
+  children: { setLastClicked, lastClicked, evaluated, setEvaluated, setDisplay }
+}) => {
+  // generates buttons
+  return numbers.map((number, idx) => {
+    const handleClick = () => {
+      const specialArray = ["/", "*", "-", "+", "="];
+      if (lastClicked === "/") {
+        if (number === "0") {
+          return setDisplay(prevDisplay => "CANT DIVIDE BY ZERO!");
+        }
+        setDisplay(prevDisplay => number);
+        const newNum = Number(evaluated) / Number(number);
+        setEvaluated(prevEvaluated => newNum);
+        return setLastClicked(prevClicked => number);
+      }
+      if (lastClicked === "*") {
+        setDisplay(prevDisplay => number);
+        const newNum = Number(number) * Number(evaluated);
+        setEvaluated(prevEvaluated => newNum);
+        return setLastClicked(prevClicked => number);
+      }
+      if (lastClicked === "-") {
+        setDisplay(prevDisplay => number);
+        const newNum = Number(evaluated) - Number(number);
+        setEvaluated(prevEvaluated => newNum);
+        return setLastClicked(prevClicked => number);
+      }
+      if (lastClicked === "+") {
+        setDisplay(prevDisplay => number);
+        const newNum = Number(evaluated) + Number(number);
+        setEvaluated(prevEvaluated => newNum);
+        return setLastClicked(prevClicked => number);
+      }
+      if (specialArray.indexOf(lastClicked) === -1) {
+        setDisplay(prevDisplay => {
+          if (prevDisplay === "0") {
+            return (prevDisplay = number);
+          } else {
+            return (prevDisplay += number);
+          }
+        });
+        return setLastClicked(prevClicked => number);
+      }
+    };
 
-//Import your array data to from the provided data file
-
-const Numbers = () => {
-  // STEP 2 - add the imported data to state
-  return (
-    <div>
-      {/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-    </div>
-  );
+    return (
+      <button
+        key={idx}
+        type="button"
+        number={number}
+        onClick={handleClick}
+        className={number === "0" ? style.numberButtonZero : style.numberButton}
+      >
+        {number}
+      </button>
+    );
+  });
 };
+
+export default Numbers;

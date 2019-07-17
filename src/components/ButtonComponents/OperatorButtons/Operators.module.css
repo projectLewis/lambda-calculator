@@ -1,0 +1,19 @@
+.operatorsContainer {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  width: 90px;
+  margin: 20px 0;
+}
+
+.operatorButton {
+  border-radius: 50%;
+  box-shadow: 1px 8px 2px -2px #2b2b2b;
+  color: white;
+  background-color: rgb(12, 114, 145);
+  border: 0;
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  height: 80px;
+}
