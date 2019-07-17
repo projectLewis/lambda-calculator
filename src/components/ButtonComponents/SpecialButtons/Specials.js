@@ -2,14 +2,20 @@ import React from "react";
 import { specials } from "../../../data";
 import style from "./Specials.module.css";
 
-const Specials = ({ children: { specs, setSpecs, display, setDisplay } }) => {
-  // STEP 2 - add the imported data to state
-  return specials.map(specialChar => {
+const Specials = ({
+  children: { setLastClicked, setEvaluated, setDisplay }
+}) => {
+  // generates buttons
+  return specials.map((specialChar, idx) => {
     const handleClick = () => {
+      // 'C' resets the calculator to starting point
       if (specialChar === "C") {
-        return setDisplay("0");
+        setDisplay(prevDisplay => "0");
+        setEvaluated(prevEvaluated => "0");
+        return setLastClicked("");
       }
       if (specialChar === "+/-") {
+        setEvaluated(prevEvaluated => "0");
         return setDisplay(prevDisplay => `-${prevDisplay}`);
       }
       if (specialChar === "%") {
@@ -18,6 +24,7 @@ const Specials = ({ children: { specs, setSpecs, display, setDisplay } }) => {
     };
     return (
       <button
+        key={idx}
         type="button"
         special={specialChar}
         onClick={handleClick}

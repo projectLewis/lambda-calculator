@@ -7,48 +7,40 @@ import SpecialButton from "./components/ButtonComponents/SpecialButtons/SpecialB
 import OperatorButton from "./components/ButtonComponents/OperatorButtons/OperatorButton";
 
 function App() {
-  // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
-  // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
-  // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
-  // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
-  // Don't forget to pass the functions (and any additional data needed) to the components as props
-
+  // display  -- contents of the display field
+  // evaluated -- keeps track of math. Initial math done in "numbers", subsequent tracking done in operators
+  // keeps track of last clicked item. So that the evaluations know if an operator was clicked previously
   const [display, setDisplay] = useState("0");
-  const [nums, setNums] = useState(null);
-  const [ops, setOps] = useState(null);
-  const [specs, setSpecs] = useState(null);
+  const [evaluated, setEvaluated] = useState("0");
+  const [lastClicked, setLastClicked] = useState("");
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display display={display} />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gridGap: "20px",
-            paddingLeft: "17px"
-          }}
-        >
+        <div className="overallButtonsContainer">
           <div>
             <SpecialButton
-              specs={specs}
-              setSpecs={setSpecs}
+              setLastClicked={setLastClicked}
+              setEvaluated={setEvaluated}
               setDisplay={setDisplay}
             />
             <NumberButton
-              nums={nums}
-              setNums={setNums}
+              lastClicked={lastClicked}
+              setLastClicked={setLastClicked}
+              evaluated={evaluated}
+              setEvaluated={setEvaluated}
               setDisplay={setDisplay}
             />
           </div>
           <OperatorButton
-            ops={ops}
-            setOps={setOps}
-            display={display}
+            lastClicked={lastClicked}
+            setLastClicked={setLastClicked}
+            setEvaluated={setEvaluated}
             setDisplay={setDisplay}
+            evaluated={evaluated}
+            display={display}
           />
         </div>
       </div>
