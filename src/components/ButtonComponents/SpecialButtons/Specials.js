@@ -5,21 +5,19 @@ import style from "./Specials.module.css";
 const Specials = ({
   children: { setLastClicked, setEvaluated, setDisplay }
 }) => {
-  // STEP 2 - add the imported data to state
   return specials.map((specialChar, idx) => {
     const handleClick = () => {
       if (specialChar === "C") {
-        setDisplay("0");
-        setEvaluated("0");
-        return setLastClicked("C");
+        setDisplay(prevDisplay => "0");
+        setEvaluated(prevEvaluated => "0");
+        return setLastClicked("");
       }
       if (specialChar === "+/-") {
-        setDisplay(prevDisplay => `-${prevDisplay}`);
-        return setLastClicked("+/-");
+        setEvaluated(prevEvaluated => "0");
+        return setDisplay(prevDisplay => `-${prevDisplay}`);
       }
       if (specialChar === "%") {
-        setDisplay(prevDisplay => `${Number(prevDisplay) * 0.01}`);
-        return setLastClicked("%");
+        return setDisplay(prevDisplay => `${Number(prevDisplay) * 0.01}`);
       }
     };
     return (

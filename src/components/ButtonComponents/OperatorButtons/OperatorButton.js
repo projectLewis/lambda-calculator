@@ -7,12 +7,20 @@ const OperatorButton = ({
   setLastClicked,
   evaluated,
   setEvaluated,
+  display,
   setDisplay
 }) => {
   return (
     <div className={style.operatorsContainer}>
       <Operators>
-        {{ lastClicked, setLastClicked, evaluated, setEvaluated, setDisplay }}
+        {{
+          lastClicked,
+          setLastClicked,
+          evaluated,
+          setEvaluated,
+          display,
+          setDisplay
+        }}
       </Operators>
     </div>
   );

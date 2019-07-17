@@ -51,6 +51,7 @@ function App() {
             setEvaluated={setEvaluated}
             setDisplay={setDisplay}
             evaluated={evaluated}
+            display={display}
           />
         </div>
       </div>
